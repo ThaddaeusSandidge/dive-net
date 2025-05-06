@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for backend-restless-moon-4944 on 2025-05-05T16:55:15-07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'backend-restless-moon-4944'
+primary_region = 'lax'
+
+[build]
+  [build.args]
+    GO_VERSION = '1.21.1'
+
+[env]
+  PORT = '8080'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

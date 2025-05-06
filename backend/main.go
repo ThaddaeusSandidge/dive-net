@@ -16,7 +16,6 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/joho/godotenv"
 	storage_go "github.com/supabase-community/storage-go"
 	"github.com/supabase-community/supabase-go"
 
@@ -105,11 +104,6 @@ type CombinedComment struct {
 }
 
 func main() {
-
-	// Load environment variables first
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file")
-	}
 
 	// Retrieve environment variables
 	port := os.Getenv("PORT")
