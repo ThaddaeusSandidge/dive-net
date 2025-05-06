@@ -76,7 +76,9 @@ const Feed: React.FC = () => {
         <h1 className="text-3xl font-bold mb-6">Dive Feed</h1>
 
         {posts.length > 0 ? (
-          posts.map((post) => <PostCard key={post.id} post={post} />)
+          [...posts]
+            .reverse()
+            .map((post) => <PostCard key={post.id} post={post} />)
         ) : (
           <p className="text-gray-500">No posts found.</p>
         )}
